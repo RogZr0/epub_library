@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My EPUB Library</title>
+    <style>
+        body {
+            background: #f8f8f8;
+            font-family: sans-serif;
+            text-align: center;
+        }
+        .rack {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .book {
+            margin: 10px;
+            cursor: pointer;
+        }
+        .book img {
+            width: 120px;
+            height: 180px;
+            object-fit: cover;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>📚 My EPUB Library</h1>
+    <a href="/upload">➕ Add New EPUB</a>
+    <div class="rack">
+        {% for book in books %}
+        <div class="book" onclick="openBook('{{ book.title }}')">
+            <img src="/static/covers/{{ book.cover }}" alt="{{ book.title }}">
+            <div>{{ book.title }}</div>
+        </div>
+        {% endfor %}
+    </div>
+    <script>
+        function openBook(filename) {
+            fetch('/open/' + filename);
+        }
+    </script>
+</body>
+</html>
