@@ -80,7 +80,7 @@ epub_library/
 
 ## 🖼️ Preview
 
-A clean bookshelf interface with clickable cover thumbnails. Clicking a cover launches the book in your system’s default reader (e.g., Okular on Linux).
+A clean bookshelf interface with clickable cover thumbnails. Clicking a cover launches the book in your system’s default reader (e.g., Okular on KDE).
 
 ---
 
