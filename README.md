@@ -88,7 +88,7 @@ A clean bookshelf interface with clickable cover thumbnails. Clicking a cover la
 
 - Update `BOOK_DIR` and `COVER_DIR` in `app.py` if you use a different structure.
 - Add your CSS styles in `static/style.css`.
-- To change default epub viewer - change okular in open_book function in app.py
+- To change default epub viewer - change `okular` in `open_book(filename)` function in `app.py`
 ```py
 def open_book(filename):
     filepath = os.path.abspath(os.path.join(BOOK_DIR, filename))
