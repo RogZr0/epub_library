@@ -2,40 +2,36 @@
 <html>
 <head>
     <title>My EPUB Library</title>
-    <style>
-        body {
-            background: #f8f8f8;
-            font-family: sans-serif;
-            text-align: center;
-        }
-        .rack {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .book {
-            margin: 10px;
-            cursor: pointer;
-        }
-        .book img {
-            width: 120px;
-            height: 180px;
-            object-fit: cover;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>📚 My EPUB Library</h1>
-    <a href="/upload">➕ Add New EPUB</a>
-    <div class="rack">
-        {% for book in books %}
-        <div class="book" onclick="openBook('{{ book.title }}')">
-            <img src="/static/covers/{{ book.cover }}" alt="{{ book.title }}">
-            <div>{{ book.title }}</div>
+    <div class="sidebar">
+        <div class="sidebar-option">
+            <a href="/">LIBRARY</a>
         </div>
-        {% endfor %}
+        <div class="sidebar-option book-upload">
+            <a href="/upload">UPLOAD</a>
+        </div>
     </div>
+    <div class="divider"></div>
+    <div class="main">
+        <div class="header">
+            <h1>📚 My Books</h1>
+        </div>
+        
+        <div class="main-divider"></div>
+
+        <div class="book-grid">
+            {% for book in books %}
+            <div class="book-item" onclick="openBook('{{ book.title }}')">
+                <img src="/static/covers/{{ book.cover }}" alt="{{ book.title }}">
+                <!-- <p>{{ book.title }}</p> -->
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
     <script>
         function openBook(filename) {
             fetch('/open/' + filename);
