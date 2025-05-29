@@ -1,3 +1,18 @@
+# Ignore virtual environment
+venv/
+
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Ignore test script
 test.py
+
+# Ignore all EPUB books but keep the folder
 /books/*
+!/books/.gitkeep
+
+# Ignore all generated cover images but keep the folder
 /static/covers/*
+!/static/covers/.gitkeep
