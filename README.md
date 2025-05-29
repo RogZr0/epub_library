@@ -93,7 +93,7 @@ A clean bookshelf interface with clickable cover thumbnails. Clicking a cover la
 def open_book(filename):
     filepath = os.path.abspath(os.path.join(BOOK_DIR, filename))
     subprocess.Popen(['okular', filepath])
-    return '', 2041
+    return '', 204
 ```
 
 ---
